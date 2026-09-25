@@ -99,5 +99,5 @@ ARCH=x86_64 ./appimagetool --no-appstream "$APP_DIR" "$DIST_DIR/${APP_NAME}-${RE
 # 5. Snap (.snap via Snapcraft)
 # ---------------------------------------------------------
 echo "Packaging Snap..."
-snapcraft pack
+snapcraft pack --destructive-mode
 mv *.snap "$DIST_DIR/"
