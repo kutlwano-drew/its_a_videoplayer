@@ -131,7 +131,7 @@ jobs:
       - name: Install Inno Setup
         shell: pwsh
         run: |
-          choco install innosetup --version=6.3.3 -y --no-progress
+          choco install innosetup -y --no-progress
 
       - name: Build EXE installer
         shell: pwsh
@@ -280,7 +280,7 @@ jobs:
 
   macos-x64:
     name: macOS x64 Release
-    runs-on: macos-13
+    runs-on: macos-15-intel
 
     steps:
       - name: Checkout

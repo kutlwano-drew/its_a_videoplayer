@@ -36,7 +36,7 @@ No unnecessary complexity. No feature overload. Just a solid video player.
 
 **Release:** Initial Release
 
-**Date of Publication:** `[25 September 2026]`
+**Date of Publication:** `(25 September 2026)`
 
 **Time of Publication:** `[PUBLICATION_TIME]`
 
@@ -51,10 +51,6 @@ The original publication date and time are recorded as part of the project's rel
 ### Player
 
 ![It’s a Video Player screenshot](https://github.com/kutlwano-drew/its_a_videoplayer/blob/main/assets/screenshots/screenshot2.png)
-
-### In Action
-
-![It’s a Video Player demo](https://github.com/kutlwano-drew/its_a_videoplayer/blob/main/assets/gifs/its%20a%20video%20player%20demo.gif)
 
 ---
 

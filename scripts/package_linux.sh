@@ -16,13 +16,18 @@ fi
 mkdir -p "$DIST_DIR"
 mkdir -p build/packaging
 
+# ---------------------------------------------------------
 # 1. Tarball (.tar.gz)
+# ---------------------------------------------------------
 echo "Packaging Tarball..."
 tar -czvf "$DIST_DIR/${APP_NAME}-${RELEASE_TAG}-linux-x64.tar.gz" -C "$BUILD_DIR" .
 
+# ---------------------------------------------------------
 # 2. DEB (.deb via FPM)
+# ---------------------------------------------------------
 echo "Packaging DEB..."
 fpm -s dir -t deb \
+  -p "$DIST_DIR/its_a_videoplayer_${VERSION}_amd64.deb" \
   -n "$APP_NAME" \
   -v "$VERSION" \
   --architecture amd64 \
@@ -31,11 +36,12 @@ fpm -s dir -t deb \
   --prefix "/usr/lib/$APP_NAME" \
   -C "$BUILD_DIR" .
 
-mv *.deb "$DIST_DIR/"
-
+# ---------------------------------------------------------
 # 3. RPM (.rpm via FPM)
+# ---------------------------------------------------------
 echo "Packaging RPM..."
 fpm -s dir -t rpm \
+  -p "$DIST_DIR/its_a_videoplayer-${VERSION}-1.x86_64.rpm" \
   -n "$APP_NAME" \
   -v "$VERSION" \
   --architecture x86_64 \
@@ -44,15 +50,17 @@ fpm -s dir -t rpm \
   --prefix "/usr/lib/$APP_NAME" \
   -C "$BUILD_DIR" .
 
-mv *.rpm "$DIST_DIR/"
-
+# ---------------------------------------------------------
 # 4. AppImage (.AppImage)
+# ---------------------------------------------------------
 echo "Packaging AppImage..."
 wget -q https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage -O appimagetool
 chmod +x appimagetool
 
 APP_DIR="build/packaging/AppDir"
+rm -rf "$APP_DIR"
 mkdir -p "$APP_DIR/usr/bin"
+
 cp -r "$BUILD_DIR"/* "$APP_DIR/usr/bin/"
 
 cat <<EOF > "$APP_DIR/$APP_NAME.desktop"
@@ -81,7 +89,9 @@ chmod +x "$APP_DIR/AppRun"
 
 ./appimagetool "$APP_DIR" "$DIST_DIR/${APP_NAME}-${RELEASE_TAG}-x86_64.AppImage"
 
+# ---------------------------------------------------------
 # 5. Snap (.snap via Snapcraft)
+# ---------------------------------------------------------
 echo "Packaging Snap..."
 snapcraft --target-arch=amd64
 mv *.snap "$DIST_DIR/"
