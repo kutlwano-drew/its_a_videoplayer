@@ -32,5 +32,5 @@ parts:
       - libgtk-3-0
       - libblkid1
       - liblzma5
-      - libmpv2
+      - libmpv1
       - libepoxy0
