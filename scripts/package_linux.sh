@@ -8,6 +8,9 @@ RELEASE_TAG="${RELEASE_TAG:-v1.0.0}"
 BUILD_DIR="build/linux/x64/release/bundle"
 DIST_DIR="dist/linux"
 
+# Force AppImageTool to run without requiring FUSE inside GitHub Actions
+export APPIMAGE_EXTRACT_AND_RUN=1
+
 if [ ! -d "$BUILD_DIR" ]; then
   echo "Error: Linux build directory not found at $BUILD_DIR"
   exit 1
