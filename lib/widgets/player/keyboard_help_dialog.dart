@@ -70,7 +70,10 @@ class _KeyboardHelpDialogState extends State<_KeyboardHelpDialog> {
                 decoration: InputDecoration(
                   hintText: 'Search controls…',
                   hintStyle: const TextStyle(color: AppColors.textMuted),
-                  prefixIcon: const Icon(Icons.search_rounded, color: AppColors.textSecondary),
+                  prefixIcon: const Icon(
+                    Icons.search_rounded,
+                    color: AppColors.textSecondary,
+                  ),
                   filled: true,
                   fillColor: Colors.black.withOpacity(0.35),
                   border: OutlineInputBorder(
@@ -96,10 +99,8 @@ class _KeyboardHelpDialogState extends State<_KeyboardHelpDialog> {
                   : ListView.separated(
                       padding: const EdgeInsets.all(14),
                       itemCount: entries.length,
-                      separatorBuilder: (_, __) => const Divider(
-                        height: 1,
-                        color: AppColors.border,
-                      ),
+                      separatorBuilder: (_, __) =>
+                          const Divider(height: 1, color: AppColors.border),
                       itemBuilder: (_, index) {
                         final entry = entries[index];
                         return Padding(
@@ -109,7 +110,9 @@ class _KeyboardHelpDialogState extends State<_KeyboardHelpDialog> {
                               Expanded(
                                 child: Text(
                                   entry.key,
-                                  style: const TextStyle(color: AppColors.textPrimary),
+                                  style: const TextStyle(
+                                    color: AppColors.textPrimary,
+                                  ),
                                 ),
                               ),
                               DecoratedBox(
@@ -144,7 +147,7 @@ class _KeyboardHelpDialogState extends State<_KeyboardHelpDialog> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Shortcuts are designed around VLC-style desktop interactions while staying focused on video playback.',
+                  'keyboard and mouse shortcuts.',
                   style: TextStyle(color: AppColors.textMuted, fontSize: 11),
                 ),
               ),

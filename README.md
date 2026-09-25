@@ -36,7 +36,7 @@ No unnecessary complexity. No feature overload. Just a solid video player.
 
 **Release:** Initial Release
 
-**Date of Publication:** `[PUBLICATION_DATE]`
+**Date of Publication:** `[25 September 2026]`
 
 **Time of Publication:** `[PUBLICATION_TIME]`
 
@@ -80,7 +80,7 @@ The extra controls are there when you need them, without getting in the way when
 
 ## Project Information
 
-**Developer:** Kutlwano P. Maruatona _(alias Drew)_
+**Developer:** Kutlwano P. Maruatona _(Drew)_
 
 **Project Domain:** The Linux GUI Project
 
@@ -88,7 +88,7 @@ The extra controls are there when you need them, without getting in the way when
 
 **Version:** 1.0.0
 
-**Initial Release Date:** `[PUBLICATION_DATE]`
+**Initial Release Date:** `[25 September 2026]`
 
 **Initial Release Time:** `[PUBLICATION_TIME]`
 
@@ -146,4 +146,4 @@ This release establishes the beginning of the project's public release history a
 
 **View Downloads:** `[DOWNLOADS_URL]`
 
-Linux GUI Project: `[LINUX_GUI_PROJECT_URL]`
+Linux GUI Project: `[https://lgui-project.web.app/]`
