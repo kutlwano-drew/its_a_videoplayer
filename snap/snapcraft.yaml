@@ -1,0 +1,37 @@
+name: its-a-videoplayer
+base: core22
+version: "1.0.0"
+summary: A lightweight desktop-first video player built with Flutter.
+description: A lightweight desktop-first video player built with Flutter.
+
+grade: stable
+confinement: strict
+
+apps:
+  its-a-videoplayer:
+    command: its_a_videoplayer
+    extensions: [gnome]
+    plugs:
+      - network
+      - home
+      - removable-media
+      - audio-playback
+      - opengl
+
+parts:
+  its-a-videoplayer:
+    plugin: flutter
+    source: .
+    flutter-target: lib/main.dart
+    build-packages:
+      - clang
+      - cmake
+      - ninja-build
+      - pkg-config
+      - libgtk-3-dev
+      - liblzma-dev
+      - libmpv-dev
+      - libepoxy-dev
+    stage-packages:
+      - libmpv2
+      - libepoxy0
