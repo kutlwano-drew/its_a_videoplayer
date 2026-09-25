@@ -58,7 +58,7 @@ fpm -s dir -t rpm \
 # 4. AppImage (.AppImage)
 # ---------------------------------------------------------
 echo "Packaging AppImage..."
-wget -q https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage -O appimagetool
+wget -q https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage -O appimagetool
 chmod +x appimagetool
 
 APP_DIR="build/packaging/AppDir"
@@ -93,7 +93,7 @@ exec "\$HERE/usr/bin/$APP_NAME" "\$@"
 EOF
 chmod 755 "$APP_DIR/AppRun"
 
-ARCH=x86_64 ./appimagetool "$APP_DIR" "$DIST_DIR/${APP_NAME}-${RELEASE_TAG}-x86_64.AppImage"
+ARCH=x86_64 ./appimagetool --no-appstream "$APP_DIR" "$DIST_DIR/${APP_NAME}-${RELEASE_TAG}-x86_64.AppImage"
 
 # ---------------------------------------------------------
 # 5. Snap (.snap via Snapcraft)
