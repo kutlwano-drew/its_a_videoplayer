@@ -50,13 +50,11 @@ The original publication date and time are recorded as part of the project's rel
 
 ### Player
 
-![It’s a Video Player screenshot](SCREENSHOT_URL_HERE)
+![It’s a Video Player screenshot](https://github.com/kutlwano-drew/its_a_videoplayer/blob/main/assets/screenshots/screenshot2.png)
 
 ### In Action
 
-![It’s a Video Player demo](GIF_URL_HERE)
-
-> Replace `SCREENSHOT_URL_HERE` and `GIF_URL_HERE` with the corresponding asset URLs from the repository.
+![It’s a Video Player demo](https://github.com/kutlwano-drew/its_a_videoplayer/blob/main/assets/gifs/its%20a%20video%20player%20demo.gif)
 
 ---
 
@@ -130,7 +128,7 @@ Video by <a href="https://pixabay.com/users/antonlukin-29278027/?utm_source=link
 
 ### Version 1.0.0 — Initial Release
 
-**Date:** `[PUBLICATION_DATE]`
+**Date:** `[25 September 2025]`
 
 **Time:** `[PUBLICATION_TIME]`
 
