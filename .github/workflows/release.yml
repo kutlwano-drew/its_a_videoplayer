@@ -135,13 +135,17 @@ jobs:
 
       - name: Build EXE installer
         shell: pwsh
-        env:
-          APP_VERSION: ${{ env.APP_VERSION }}
-          BUILD_DIR: ${{ github.workspace }}\build\windows\x64\runner\Release
-          OUT_DIR: ${{ github.workspace }}\dist\windows
-          RELEASE_TAG: ${{ github.ref_name }}
         run: |
+          $buildDir = "$env:GITHUB_WORKSPACE\build\windows\x64\runner\Release"
+          $outDir = "$env:GITHUB_WORKSPACE\dist\windows"
+          $appVer = "$env:APP_VERSION"
+          $relTag = "$env:GITHUB_REF_NAME"
+
           & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" `
+            "/DBuildDir=$buildDir" `
+            "/DOutDir=$outDir" `
+            "/DAppVersion=$appVer" `
+            "/DReleaseTag=$relTag" `
             "packaging\windows\its_a_videoplayer.iss"
 
       - name: Install WiX Toolset

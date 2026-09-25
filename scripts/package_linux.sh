@@ -13,6 +13,7 @@ if [ ! -d "$BUILD_DIR" ]; then
   exit 1
 fi
 
+rm -rf "$DIST_DIR" build/packaging
 mkdir -p "$DIST_DIR"
 mkdir -p build/packaging
 
@@ -58,8 +59,8 @@ wget -q https://github.com/AppImage/AppImageKit/releases/download/13/appimagetoo
 chmod +x appimagetool
 
 APP_DIR="build/packaging/AppDir"
-rm -rf "$APP_DIR"
 mkdir -p "$APP_DIR/usr/bin"
+mkdir -p "$APP_DIR/usr/lib"
 
 cp -r "$BUILD_DIR"/* "$APP_DIR/usr/bin/"
 
@@ -70,7 +71,9 @@ Name=$DISPLAY_NAME
 Exec=$APP_NAME
 Icon=$APP_NAME
 Categories=AudioVideo;Player;Video;
+Terminal=false
 EOF
+chmod 644 "$APP_DIR/$APP_NAME.desktop"
 
 if [ -f "assets/logo.png" ]; then
   cp assets/logo.png "$APP_DIR/$APP_NAME.png"
@@ -82,12 +85,12 @@ cat <<EOF > "$APP_DIR/AppRun"
 #!/bin/sh
 HERE="\$(dirname "\$(readlink -f "\$0")")"
 export PATH="\$HERE/usr/bin:\$PATH"
-export LD_LIBRARY_PATH="\$HERE/usr/bin/lib:\$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="\$HERE/usr/bin:\$HERE/usr/bin/lib:\$LD_LIBRARY_PATH"
 exec "\$HERE/usr/bin/$APP_NAME" "\$@"
 EOF
-chmod +x "$APP_DIR/AppRun"
+chmod 755 "$APP_DIR/AppRun"
 
-./appimagetool "$APP_DIR" "$DIST_DIR/${APP_NAME}-${RELEASE_TAG}-x86_64.AppImage"
+ARCH=x86_64 ./appimagetool "$APP_DIR" "$DIST_DIR/${APP_NAME}-${RELEASE_TAG}-x86_64.AppImage"
 
 # ---------------------------------------------------------
 # 5. Snap (.snap via Snapcraft)
